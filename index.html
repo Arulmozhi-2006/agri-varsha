@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monsoon Forecast: Terrace Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--mist:#dde5e2;--ink:#1f2a22;--kum:#a3282b;--water:#4f93a5;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--mist);color:var(--ink);font-family:Hind,system-ui,sans-serif;line-height:1.45;overflow-x:hidden}
+h1,h2,h3,.stamp text,.team b{font-family:'Yatra One',Hind,serif;font-weight:400}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+header{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding:38px 0 30px}
+h1{font-size:clamp(30px,5vw,54px);line-height:1.05;margin:0 0 10px;max-width:14ch}
+header p{margin:0 0 14px;max-width:52ch;color:#4b5a50}
+.seals{display:flex;align-items:center;gap:18px;color:var(--kum)}
+.stamp{width:112px;height:112px;transform:rotate(-9deg);flex:none}
+.team{border:2px solid var(--kum);outline:1px solid var(--kum);outline-offset:3px;padding:8px 14px;transform:rotate(3deg);text-align:center;line-height:1.1;filter:url(#ink)}
+.team small{display:block;font:600 11px Hind;letter-spacing:.14em}
+.team b{font-size:22px;display:block;margin-top:2px}
+button{font:600 14px Hind,sans-serif;cursor:pointer;color:var(--ink);background:none;border:0;border-bottom:2px solid var(--ink);padding:0 0 1px}
+button:focus-visible{outline:3px solid var(--water);outline-offset:3px}
+.flow{position:relative;padding:0 0 70px 64px}
+.terr{margin-left:calc(var(--i)*26px);background:var(--bg);color:var(--fg);border-radius:34px 10px 6px 6px;border-bottom:14px solid color-mix(in srgb,var(--bg) 48%,#2e2016);padding:0 20px 18px;position:relative;overflow:hidden}
+.terr::before{content:"";display:block;height:9px;margin:0 -20px 14px;background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,.1),rgba(255,255,255,.55));background-size:200% 100%;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.th{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.no{flex:none;width:38px;height:38px;border:2px solid var(--kum);color:var(--kum);border-radius:50%;display:grid;place-items:center;font:400 19px 'Yatra One';background:rgba(255,255,255,.4)}
+.th h2{font-size:26px;line-height:1.1;margin:0}
+.th p{margin:2px 0 0;font-size:14.5px;opacity:.82}
+.hitl{margin-left:auto;border:2px solid var(--kum);color:var(--kum);padding:1px 10px;font-weight:600;font-size:13px;transform:rotate(-2deg);background:rgba(255,255,255,.55)}
+.grp{font-weight:600;font-size:13px;margin:14px 0 4px;opacity:.75}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));column-gap:22px}
+.chip{all:unset;box-sizing:border-box;display:block;cursor:pointer;padding:10px 8px 11px 0;border-top:1px solid color-mix(in srgb,var(--fg) 30%,transparent);position:relative}
+.chip b{display:block;font-weight:600;font-size:15.5px;line-height:1.2}
+.chip small{display:block;font-size:13px;opacity:.78;line-height:1.3;margin-top:2px}
+.chip:hover,.chip[aria-expanded=true]{background:rgba(255,255,255,.38)}
+.chip:hover b,.chip[aria-expanded=true] b{text-decoration:underline;text-decoration-color:var(--kum);text-decoration-thickness:2px;text-underline-offset:3px}
+.chip:focus-visible{outline:2px solid var(--kum);outline-offset:1px}
+.note{margin-top:14px;padding:10px 14px;border:1.5px dashed color-mix(in srgb,var(--fg) 55%,transparent);border-radius:4px 16px 4px 16px;background:rgba(255,255,255,.28)}
+.note h3{margin:0 0 4px;font-size:16px}
+.note ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px 18px;font-size:14px}
+.note li::before{content:"";display:inline-block;width:7px;height:7px;border:1.5px solid var(--kum);border-radius:50%;margin-right:8px}
+.fall{width:12px;height:26px;margin-left:calc(var(--i)*26px + 56px);border-radius:0 0 4px 4px;background:repeating-linear-gradient(180deg,#5b98a8 0 6px,#9cc9d3 6px 12px);animation:fl .9s linear infinite}
+@keyframes fl{to{background-position:0 12px}}
+.loop{position:absolute;left:16px;width:10px}
+.loop i{position:absolute;left:0;height:10px;background:radial-gradient(circle,var(--kum) 3px,transparent 3.6px) 0 50%/11px 10px repeat-x}
+.loop .a1{top:0;animation:dx 1s linear infinite}.loop .a2{bottom:0;animation:dxn 1s linear infinite}
+.loop .a3{top:0;bottom:0;width:10px;height:auto;background:radial-gradient(circle,var(--kum) 3px,transparent 3.6px) 50% 0/10px 11px repeat-y;animation:dyn 1s linear infinite}
+.loop .a1::after{content:"";position:absolute;right:-8px;top:0;border:5px solid transparent;border-left:8px solid var(--kum)}
+@keyframes dx{to{background-position:11px 50%}}@keyframes dxn{to{background-position:-11px 50%}}@keyframes dyn{to{background-position:50% -11px}}
+.loop span{position:absolute;left:14px;top:50%;transform:translateY(-50%) rotate(-90deg) translateX(-50%);transform-origin:left top;white-space:nowrap;font:600 12px Hind;color:var(--kum);letter-spacing:.05em}
+.paused *,.paused::before{animation-play-state:paused!important}
+dialog{border:2px solid var(--ink);border-radius:4px 22px 4px 22px;padding:0;max-width:420px;width:calc(100% - 32px);background:#eef1ec;color:var(--ink);box-shadow:7px 7px 0 var(--ink)}
+dialog::backdrop{background:rgba(31,42,34,.55)}
+.dh{padding:16px 20px 6px}.dh small{color:var(--kum);font-weight:600}
+.dh h2{margin:0;font-size:25px}
+.db{padding:6px 20px 20px}.db p{margin:0 0 14px}
+.db em{font-style:normal;display:inline-block;border:2px solid var(--kum);color:var(--kum);padding:0 10px;font-weight:600;font-size:13px;transform:rotate(-2deg)}
+@media (max-width:860px){.flow{padding-left:0}.loop{display:none}.terr{margin-left:0}.fall{margin-left:28px}.stamp{width:88px;height:88px}}
+@media (prefers-reduced-motion:reduce){.terr::before,.fall,.loop i{animation:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="ink"><feTurbulence baseFrequency=".8" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/></filter></svg>
+<div class="wrap">
+<header>
+ <div><h1>Rain to farmer, block by block</h1>
+ <p>Rain data steps down seven terraces, from raw climate signals to an approved advisory on a farmer's phone. Tap any line to open it.</p>
+ <button id="pp" aria-pressed="false">Pause the water</button></div>
+ <div class="seals">
+  <svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Smart India Hackathon 2026, problem 26086"><defs><path id="arc" d="M16 60a44 44 0 1 1 88 0"/></defs>
+   <g filter="url(#ink)"><g fill="none" stroke="currentColor"><circle cx="60" cy="60" r="57" stroke-width="3"/><circle cx="60" cy="60" r="51" stroke-width="1"/></g>
+   <g fill="currentColor" font-family="Yatra One"><text font-size="8.5" letter-spacing=".5"><textPath href="#arc" startOffset="50%" text-anchor="middle">SMART INDIA HACKATHON</textPath></text>
+   <text x="60" y="70" text-anchor="middle" font-size="27">2026</text><text x="60" y="90" text-anchor="middle" font-size="10">PS 26086</text></g></g></svg>
+  <div class="team"><small>TEAM</small><b>TechTactix_26</b></div>
+ </div>
+</header>
+<div class="flow" id="flow"></div>
+</div>
+<dialog id="dlg" aria-labelledby="dt"><div class="dh"><small id="dl"></small><h2 id="dt"></h2></div><div class="db"><p id="dd"></p><em id="dm"></em><p style="margin:16px 0 0"><button id="cl">Close</button></p></div></dialog>
+<script>
+const R=[
+{t:'Data input',s:'Climate, rainfall and farm data collected daily',c:'#3f7fb0',g:'Data sources',ch:[
+['🌧','IMD rainfall','0.25° grid, 1901 to now','Gridded daily rain records: the ground truth every model learns from.','Zarr / NetCDF'],
+['🌬','ERA5 reanalysis','Winds, OLR, humidity','Atmospheric state variables that explain how rain systems form and move.','xarray'],
+['🛰','Satellite rain','GPM-IMERG / CHIRPS','Fills gaps between rain gauges with near real-time satellite estimates.','GPM-IMERG, CHIRPS'],
+['🌏','Climate drivers','ENSO, IOD, MJO indices','Planet-scale signals that shift monsoon timing weeks ahead.','Niño3.4, DMI, RMM'],
+['📈','S2S forecasts','IMD ERF / ECMWF','Sub-seasonal model outlooks, the raw 7 to 30 day guidance.','IMD ERF, ECMWF S2S'],
+['🌾','Crop calendars','ICAR / KVK, block-wise','Sowing windows and crop stages for each block.','ICAR, KVK data']],
+side:['Data pipeline (Airflow)',['Daily automated ingestion','Aggregation to block / panchayat','Logged climate-driver features','Quality checks and gap filling']]},
+{t:'Prediction engine',s:'Global-to-local hybrid ML downscaling',c:'#4b57a8',g:'Hybrid ML prediction',ch:[
+['🎚','Bias correction','Quantile mapping of S2S','Removes systematic error from raw sub-seasonal forecasts.','Quantile mapping'],
+['🎲','Probabilistic ML','LightGBM / XGBoost','Predicts rain probability rather than a single number.','LightGBM, XGBoost'],
+['🗺','Spatial downscaling','ConvLSTM / U-Net','Sharpens coarse forecasts to block and panchayat scale.','ConvLSTM, U-Net (PyTorch)'],
+['🧮','Ensemble forecast','Multi-model spread','Combines models; the spread shows how uncertain the outlook is.','Model ensemble'],
+['📅','Weekly probabilities','Week 1 to Week 4','Turns the ensemble into a chance of rain for each of four weeks.','Probability per week']],
+side:['Forecast output',['Block / panchayat level','7 to 30 day outlook','Probability per week']]},
+{t:'Hazard engine',s:'Detects each monsoon phase',c:'#d19a1c',g:'Monsoon hazard detection',ch:[
+['☁','Onset','20 mm or more in 2 to 3 days','Flags the start of monsoon rains at a block.','Rule: ≥20 mm in 2 to 3 days'],
+['⚠','False onset','Onset, then dry spell of 7 days','Catches early rain followed by a dry spell so farmers do not sow too soon.','Onset + dry spell ≥7 days'],
+['🌊','Active phase','Sustained rainfall','Marks periods of steady rain.','Sustained rainfall'],
+['🌵','Dry spell','7 of 14 days under 2.5 mm/day','Detects break-monsoon stretches that stress crops.','7/14 days <2.5 mm/day'],
+['⛈','Heavy rainfall','64.5 mm/day or more (IMD)','Warns of downpours using the IMD heavy-rain threshold.','≥64.5 mm/day'],
+['🌱','Revival','Rain returns after a break','Signals when it is safe to resume field work.','Rain after break']]},
+{t:'Validation layer',s:'Uncertainty-aware, tested forecasts',c:'#5b8f3a',g:'Confidence and validation',ch:[
+['📐','Calibration','Isotonic probability fit','Makes "70% chance" mean roughly 70% in practice.','Isotonic regression'],
+['⏪','Hindcast testing','1991 to 2025 seasons','Replays past seasons to see how the system would have done.','1991 to 2025'],
+['🎯','Skill scores','Brier, CRPS, ROC-AUC','Scores that measure forecast accuracy against observations.','Brier, CRPS, ROC-AUC'],
+['🚦','Confidence level','High, Medium or Low','Each forecast carries a simple trust label.','High / Medium / Low']]},
+{t:'Advisory engine',s:'Crop, stage and hazard become plain advice',c:'#8a5a3c',g:'Crop-aware advisory',ch:[
+['📋','Rule engine','Crop × stage × hazard','Maps a hazard to an action for a given crop and growth stage.','Rule-based expert system'],
+['📚','Guideline RAG','ICAR / IMD AAS docs','Grounds advice in official agronomy guidelines.','ChromaDB (RAG)'],
+['💬','LLM simplifier','Plain farmer language','Rewrites technical advice in simple words.','LLM'],
+['🔤','Translation','Bhashini, regional','Translates advice into regional Indian languages.','Bhashini'],
+['🔊','Voice output','Indic TTS for IVR','Speaks the advice for farmers who prefer audio.','AI4Bharat TTS']]},
+{t:'Officer dashboard',s:'Nothing is broadcast without review',c:'#1f6570',g:'Officer dashboard',hitl:1,ch:[
+['🟥','Risk maps','Color-coded block risk','Shows probability of onset, break or heavy rain per block.','Leaflet / MapLibre'],
+['🚦','Confidence view','Forecast confidence','Shows how much to trust each forecast.','Confidence level'],
+['👁','Review advisories','AI-drafted, human-checked','Officers read every AI-drafted advisory.','Human-in-the-loop'],
+['✏','Edit or reject','If unsafe','Officers can change or block a risky message.','Human-in-the-loop'],
+['📣','Approve and broadcast','Alerts go out','Approved advisories are sent to all channels.','Celery + Redis queue'],
+['📌','Priority list','Risky blocks first','Ranks blocks so officers act on the worst risk first.','Ranked risk list'],
+['🗂','Audit log','Every alert recorded','Keeps a record of every alert and who approved it.','Audit trail']]},
+{t:'Multi-channel delivery',s:'Reaches farmers on the channel they use',c:'#c4553a',g:'Multi-channel delivery',ch:[
+['📱','Farmer app','Offline-ready PWA','Mobile web app that still works with weak network.','React PWA'],
+['✉','SMS alerts','Works on any phone','Reaches basic phones with short text.','SMS gateway'],
+['🟢','WhatsApp','Text and voice notes','Sends text and voice advisories on WhatsApp.','WhatsApp API'],
+['☎','IVR voice call','For low-literacy users','Phone call that reads out the advice.','IVR + Indic TTS'],
+['🗺','Risk maps','Color-coded blocks','Shareable maps of block-level risk.','Leaflet'],
+['🔌','Open API','For KVKs and agri depts','Lets other agencies use the forecasts.','FastAPI']],
+side:['Feedback and retraining',['Farmer feedback','Observed vs predicted rain','Seasonal retraining (MLflow)']],fb:1}
+];
+const BG=['#b8cdd2','#a5c4c0','#9fc0a0','#88ad78','#b5b06a','#c19a58','#7a5236'];
+const flow=document.getElementById('flow');
+let h='';
+R.forEach((r,i)=>{
+ h+=`<section class="terr" id="r${i}" style="--i:${i};--bg:${BG[i]};--fg:${i==6?'#f6eddd':'#1f2a22'}">
+ <div class="th"><span class="no">${i+1}</span><div><h2>${r.t}</h2><p>${r.s}</p></div>${r.hitl?'<span class="hitl">Human-in-the-loop</span>':''}</div>
+ <p class="grp">${r.g}</p><div class="chips">`+
+ r.ch.map((c,j)=>`<button class="chip" data-r="${i}" data-c="${j}" aria-haspopup="dialog" aria-expanded="false"><b>${c[1]}</b><small>${c[2]}</small></button>`).join('')+`</div>`+
+ (r.side?`<div class="note" id="${i==0?'pipe':i==6?'fb':'fo'}"><h3>${r.side[0]}</h3><ul>${r.side[1].map(x=>`<li>${x}</li>`).join('')}</ul></div>`:'')+`</section>`;
+ if(i<R.length-1)h+=`<div class="fall" style="--i:${i}"></div>`;
+});
+h+=`<div class="loop" id="loop"><i class="a1"></i><i class="a2"></i><i class="a3"></i><span>Seasonal retraining loop</span></div>`;
+flow.innerHTML=h;
+const dlg=document.getElementById('dlg');
+const clr=()=>document.querySelectorAll('.chip[aria-expanded=true]').forEach(x=>x.setAttribute('aria-expanded','false'));
+flow.addEventListener('click',e=>{
+ const b=e.target.closest('.chip');if(!b)return;
+ const r=R[b.dataset.r],c=r.ch[b.dataset.c];
+ dl.textContent=r.t;dt.textContent=c[1];dd.textContent=c[3];dm.textContent=c[4];
+ b.setAttribute('aria-expanded','true');dlg.showModal();
+});
+cl.onclick=()=>dlg.close();dlg.addEventListener('close',clr);
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+pp.onclick=()=>{const p=document.body.classList.toggle('paused');pp.setAttribute('aria-pressed',p);pp.textContent=p?'Resume the water':'Pause the water'};
+function place(){
+ const a=document.getElementById('pipe'),b=document.getElementById('fb'),l=document.getElementById('loop');
+ if(!a||!b||innerWidth<=860)return;
+ const f=flow.getBoundingClientRect(),ra=a.getBoundingClientRect(),rb=b.getBoundingClientRect();
+ const ya=ra.top+ra.height/2-f.top-5,yb=rb.top+rb.height/2-f.top-5;
+ l.style.top=ya+'px';l.style.height=(yb-ya+10)+'px';
+ l.querySelector('.a1').style.width=(ra.left-f.left-16-8)+'px';
+ l.querySelector('.a2').style.width=(rb.left-f.left-16)+'px';
+}
+addEventListener('resize',place);document.fonts&&document.fonts.ready.then(place);place();
+</script>
+</body>
+</html>
